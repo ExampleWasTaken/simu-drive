@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'nz.ewt'
+version = '1.0.0-pre-alpha.1'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'nz.ewt.Main'
+}
