@@ -8,7 +8,7 @@ public class SimulationEngine {
 
     private long lastUpdateTime;
 
-    private List<Simulatable> components;
+    private final List<Simulatable> components;
 
     public SimulationEngine() {
         this.isRunning = false;
