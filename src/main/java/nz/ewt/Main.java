@@ -1,23 +1,20 @@
 package nz.ewt;
 
-import nz.ewt.core.Simulatable;
 import nz.ewt.core.SimulationEngine;
+import nz.ewt.simvar.SimvarName;
 
 public class Main {
+
     public static void main(String[] args) {
-        SimulationEngine engine = new SimulationEngine();
-        engine.addComponent(new Simulatable() {
-            @Override
-            public void init() {
+        System.out.println("RUNNING...");
+        SimulationEngine simulationEngine = new SimulationEngine();
 
-            }
+        simulationEngine.getSimvarManager().getRecorder().start();
+        for (int i = 0; i < 100; i++) {
+            simulationEngine.getSimvarManager().setSimvar(SimvarName.ENGINE_RPM, i);
+        }
 
-            @Override
-            public void update(double deltaTime) {
-                System.out.println("DeltaTime:" + Math.round(deltaTime * 100.0) / 100.0);
-            }
-        });
-
-        engine.start();
+        simulationEngine.getSimvarManager().getRecorder().stop();
+        simulationEngine.getSimvarManager().getRecorder().dumpRecording();
     }
 }
