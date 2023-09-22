@@ -8,16 +8,16 @@ import java.util.HashMap;
  * as well as utility methods for retrieving the identifier and the type it denotes.
  */
 public class Identifier {
-    private Type type;
+    private final Type type;
 
-    private int id;
+    private final int id;
 
     public Identifier(Type type, int id) {
         this.type = type;
         this.id = id;
     }
 
-    public Identifier(String identifier) throws Exception {
+    public Identifier(String identifier) {
         char typeDesignator = identifier.charAt(0);
         if (identifier.substring(1).length() != 3) {
             throw new IllegalArgumentException("Identifier IDs must be three digits long.");
@@ -38,7 +38,7 @@ public class Identifier {
     }
 
     public static class Type {
-        private static HashMap<Character, String> validChars;
+        private final static HashMap<Character, String> validChars;
 
         static {
             validChars = new HashMap();
@@ -71,6 +71,8 @@ public class Identifier {
             if (!validChars.containsKey(type)) {
                 throw new IllegalArgumentException("Illegal type designator.");
             }
+
+            this.type = type;
         }
 
         public char get() {

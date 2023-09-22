@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SimvarManager {
-    private Map<SimvarName, Object> simvars;
+    private final Map<SimvarName, Object> simvars;
 
-    private SimvarRecorder recorder;
+    private final SimvarRecorder recorder;
 
     public SimvarManager() {
         simvars = new HashMap<>();

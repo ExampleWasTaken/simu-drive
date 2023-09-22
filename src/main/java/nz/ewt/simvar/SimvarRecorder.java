@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class SimvarRecorder {
     private boolean isRecording;
-    private List<SimvarRecord> recording = new ArrayList<>();
+    private final List<SimvarRecord> recording = new ArrayList<>();
 
     public SimvarRecorder() {
         isRecording = false;
