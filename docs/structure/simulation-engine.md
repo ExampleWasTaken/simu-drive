@@ -26,7 +26,7 @@ will start to update its state. Once it's done its parent component will send th
 its state.
 
 You can think of the process as follows:
-![Hierarchy example image](/Users/examplewastaken/Documents/Development/simu-drive/docs/structure/resources/simu-drive-component-hierarchy-example.png)
+![Hierarchy example image](./resources/simu-drive-component-hierarchy-example.png)
 
 In this example the simulation engine sends the update signal to the engine component, which forwards it to the crankshaft
 component. Once the crankshaft receives the signal is starts to update its state (e.g. rpm). After its done the engine updates 
