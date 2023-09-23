@@ -67,4 +67,12 @@ public class SimulationEngine {
     public void stop() {
         isRunning = false;
     }
+
+    public long getSimulationRate() {
+        return simulationThrottler.getUpdateRate();
+    }
+
+    public void setSimulationRate(long simulationRate_ms) {
+        simulationThrottler.setUpdateRate(simulationRate_ms);
+    }
 }

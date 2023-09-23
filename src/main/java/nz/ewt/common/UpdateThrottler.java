@@ -9,6 +9,14 @@ public class UpdateThrottler {
         accumulatedDeltaTime = 0;
     }
 
+    public long getUpdateRate() {
+        return updateRate_ms;
+    }
+
+    public void setUpdateRate(long updateRate_ms) {
+        this.updateRate_ms = updateRate_ms;
+    }
+
     /**
      * @param deltaTime The time that has passed since the last update cycle.
      * @return -1 if the component should not update, otherwise the elapsed time since the component this throttler belongs to has updated.
