@@ -53,6 +53,9 @@ public class SimulationEngine {
 
         while(isRunning) {
             double deltaTime = this.deltaTimeCalculator.get();
+
+            if (simulationThrottler.canUpdate(deltaTime) == -1) return;
+
             hardwareOrchestrator.update(deltaTime);
             softwareOrchestrator.update(deltaTime);
         }
