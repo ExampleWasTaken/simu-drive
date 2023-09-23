@@ -1,9 +1,11 @@
 package nz.ewt.core.hardware;
 
-public interface HardwareComponent {
-    void initialize();
-    void update(double deltaTime);
+/**
+ * Represents a hardware component meaning it is managed by the {@link nz.ewt.core.hardware.HardwareOrchestrator} and runs
+ * at simulation speed.
+ */
 
-    default void destroy() {
-    }
+import nz.ewt.core.common.Component;
+
+public interface HardwareComponent extends Component {
 }

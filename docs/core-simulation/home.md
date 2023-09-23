@@ -4,14 +4,14 @@ the simulation as a whole is built.
 
 ---
 
-The structure documentation is contained in the `structure` directory. Each component has its own file. You can navigate
-the documentation either by directly selecting the component you're interested in, or by clicking through (Tip: Start
+The core simulation documentation is contained in the `core-simulation` directory. Each component has its own file. You 
+can navigate the documentation either by directly selecting the component you're interested in, or by clicking through (Tip: Start
 here ;)).
 
 ---
 
 ## Terminology
-Throughout this documentation there are a few terms that should be understood:
+Throughout this documentation there are a few terms use that you should be familiar with:
 
 | Term             | Meaning                                                                                             |
 |------------------|-----------------------------------------------------------------------------------------------------|
@@ -38,7 +38,7 @@ The root of the simulation is the simulation engine.
 Generally speaking the simulation has two parts: The hardware part and the software part. The latter being used to control
 the former.
 
-The both parts are managed by their own orchestrator:
+Both parts are managed by their own [orchestrator](./orchestrator.md):
 
 - [Hardware Orchestrator](./hardware-orchestrator.md)
 - [Software Orchestrator](./software-orchestrator.md)

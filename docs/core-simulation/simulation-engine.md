@@ -19,11 +19,12 @@ Note, that components can refuse to update if they are throttled. In that case t
 The update cycle principle means that the resolution of the simulation depends on the number of cycles performed per second. 
 The more, the better.  
 
-Each cycle is started by the simulation engine by sending the update signal to the top most component in the hierarchy.
-This will always be the [hardware orchestrator](./hardware-orchestrator.md) (see below as to why). It will send the update
-signal to its first child component, who sends it to its first child components, etc. After the bottom most component is reached it
-will start to update its state. Once it's done its parent component will send the signal to its next child, which will update
-its state.
+Each cycle is started by the simulation engine by sending an update signal to the top most component in the hierarchy.
+This will always be the [hardware orchestrator](./hardware-orchestrator.md) (see why below). It will forward the update
+signal to its first child component, who sends it to its first child component, etc. After the bottom most component is 
+reached, it will start to update its state. Once it's done its parent component will send the signal to its next child, 
+which will update its state. Once all child components have updated their state, the parent component will then start to
+update its own state.
 
 You can think of the process as follows:
 ![Hierarchy example image](./resources/simu-drive-component-hierarchy-example.png)
