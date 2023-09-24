@@ -39,7 +39,7 @@ The root of the simulation is the simulation engine.
 Generally speaking the simulation has two parts: The hardware part and the software part. The latter being used to control
 the former.
 
-Both parts are managed by their own [orchestrator](./orchestrator.md):
+Both parts are managed by their own orchestrator:
 
 - [Hardware Orchestrator](./hardware-orchestrator.md)
 - [Software Orchestrator](./software-orchestrator.md)
