@@ -67,10 +67,30 @@ Simvars are basically global variables that can be accessed by every system.
   - {number}
     - 1
     - 2
+
+- TRANS_CLUTCH_{number}_ENGINE_DISK_ANGLE
+  - Double
+  - Radians
+  - Current angle of the engine side clutch disk.
+  - {number}
+    - 1
+    - 2
+
+- TRANS_CLUTCH_{number}_TRANS_DISK_ANGLE
+  - Double
+  - Radians
+  - Current angle of the transmission side clutch disk.
+  - {number}
+    - 1
+    - 2
   
 
 ## Engine
+- CRANKSHAFT_ANGLE
+  - Double
+  - Radians
+  - Current angle of the crankshaft.
 
-- ENGINE_RPM
+- CRANKSHAFT_RPM
   - Double
   - Revolutions per minute of the crankshaft

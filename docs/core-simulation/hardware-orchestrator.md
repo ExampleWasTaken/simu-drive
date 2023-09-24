@@ -4,7 +4,8 @@
 - [Simulation Engine](./simulation-engine.md)
 
 ## Children
-- []()
+- [Crankshaft](./crankshaft.md)
+- [Transmission](./transmission.md)
 
 ## Description
 The hardware orchestrator manages all hardware components of the car.  

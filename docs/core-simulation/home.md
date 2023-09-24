@@ -13,11 +13,12 @@ here ;)).
 ## Terminology
 Throughout this documentation there are a few terms use that you should be familiar with:
 
-| Term             | Meaning                                                                                             |
-|------------------|-----------------------------------------------------------------------------------------------------|
-| Component        | A component is any component of the simulation. E.g. the transmission or an individual drive shaft. |
-| Child component  | A child component is a component that has one parent component.                                     |
-| Parent component | A parent component is a component that has at least one child component.                            |
+| Term             | Meaning                                                                                                                                                                                                                   |
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Component        | A component is any component of the simulation. E.g. the transmission or an individual drive shaft.                                                                                                                       |
+| Child component  | A child component is a component that has one parent component.                                                                                                                                                           |
+| Parent component | A parent component is a component that has at least one child component.                                                                                                                                                  |
+| Orchestrator     | An orchestrator is a special component. It has no other use than to manage different sub systems. This means is that they do not contribute any data to the simulation and are rather the managers of components that do. |
 
 > [!NOTE]  
 > All components except the simulation engine (root) component can be parent *and* child components.
