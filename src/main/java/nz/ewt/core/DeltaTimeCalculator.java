@@ -1,4 +1,4 @@
-package nz.ewt.common;
+package nz.ewt.core;
 
 public class DeltaTimeCalculator {
     private long currentTime;
@@ -11,7 +11,7 @@ public class DeltaTimeCalculator {
         deltaTime = 0;
     }
 
-    public double get() {
+    public double getDeltaTime() {
         currentTime = System.currentTimeMillis();
         deltaTime = currentTime - lastUpdateTime;
         lastUpdateTime = currentTime;

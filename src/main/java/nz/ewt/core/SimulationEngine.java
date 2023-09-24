@@ -1,6 +1,5 @@
 package nz.ewt.core;
 
-import nz.ewt.common.DeltaTimeCalculator;
 import nz.ewt.common.UpdateThrottler;
 import nz.ewt.core.hardware.HardwareOrchestrator;
 import nz.ewt.core.software.SoftwareOrchestrator;
@@ -52,7 +51,7 @@ public class SimulationEngine {
         softwareOrchestrator.initialize();
 
         while(isRunning) {
-            double deltaTime = this.deltaTimeCalculator.get();
+            double deltaTime = this.deltaTimeCalculator.getDeltaTime();
 
             if (simulationThrottler.canUpdate(deltaTime) == -1) return;
 
