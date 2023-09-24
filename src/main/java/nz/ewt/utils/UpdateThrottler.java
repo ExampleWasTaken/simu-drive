@@ -1,4 +1,4 @@
-package nz.ewt.common;
+package nz.ewt.utils;
 
 public class UpdateThrottler {
     private long updateRate_ms;
