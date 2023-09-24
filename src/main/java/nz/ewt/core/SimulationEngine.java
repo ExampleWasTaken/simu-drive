@@ -1,6 +1,6 @@
 package nz.ewt.core;
 
-import nz.ewt.common.UpdateThrottler;
+import nz.ewt.utils.UpdateThrottler;
 import nz.ewt.core.hardware.HardwareOrchestrator;
 import nz.ewt.core.software.SoftwareOrchestrator;
 import nz.ewt.simvar.SimvarManager;
@@ -20,20 +20,22 @@ public class SimulationEngine {
      * Sets the update interval of the simulation to 1 ms.
      */
     public SimulationEngine() {
-        hardwareOrchestrator = new HardwareOrchestrator();
-        softwareOrchestrator = new SoftwareOrchestrator();
         simvarManager = new SimvarManager();
-        simulationThrottler = new UpdateThrottler(1);
+        hardwareOrchestrator = new HardwareOrchestrator(simvarManager);
+        softwareOrchestrator = new SoftwareOrchestrator(simvarManager);
+        simulationThrottler = new UpdateThrottler(0);
+        deltaTimeCalculator = new DeltaTimeCalculator();
     }
 
     /**
      * @param updateRate_ms The update interval of the simulation.
      */
     public SimulationEngine(long updateRate_ms) {
-        hardwareOrchestrator = new HardwareOrchestrator();
-        softwareOrchestrator = new SoftwareOrchestrator();
         simvarManager = new SimvarManager();
+        hardwareOrchestrator = new HardwareOrchestrator(simvarManager);
+        softwareOrchestrator = new SoftwareOrchestrator(simvarManager);
         simulationThrottler = new UpdateThrottler(updateRate_ms);
+        deltaTimeCalculator = new DeltaTimeCalculator();
     }
 
     public SimvarManager getSimvarManager() {
@@ -50,7 +52,9 @@ public class SimulationEngine {
         hardwareOrchestrator.initialize();
         softwareOrchestrator.initialize();
 
-        while(isRunning) {
+        simvarManager.getRecorder().start();
+
+        for (int i = 0; i < 4; i++) {
             double deltaTime = this.deltaTimeCalculator.getDeltaTime();
 
             if (simulationThrottler.canUpdate(deltaTime) == -1) return;
@@ -59,8 +63,12 @@ public class SimulationEngine {
             softwareOrchestrator.update(deltaTime);
         }
 
+        simvarManager.getRecorder().stop();
+
         softwareOrchestrator.destroy();
         hardwareOrchestrator.destroy();
+
+        simvarManager.getRecorder().dumpRecording();
     }
 
     public void stop() {

@@ -1,14 +1,18 @@
 package nz.ewt.core.software;
 
+import nz.ewt.simvar.SimvarManager;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class SoftwareOrchestrator {
     private List<SoftwareComponent> components;
+    private SimvarManager simvarManager;
 
-    public SoftwareOrchestrator() {
+    public SoftwareOrchestrator(SimvarManager simvarManager) {
         components = new ArrayList<>();
+        this.simvarManager = simvarManager;
     }
 
     public void addComponent(SoftwareComponent component) {

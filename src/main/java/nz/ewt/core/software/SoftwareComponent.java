@@ -1,6 +1,6 @@
 package nz.ewt.core.software;
 
-import nz.ewt.common.UpdateThrottler;
+import nz.ewt.utils.UpdateThrottler;
 import nz.ewt.core.common.Component;
 
 /**
